@@ -1,0 +1,5 @@
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\FileRW\bin\Debug\FileRW.dll
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\FileRW\bin\Debug\FileRW.pdb
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\FileRW\obj\Debug\FileRW.csproj.CoreCompileInputs.cache
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\FileRW\obj\Debug\FileRW.dll
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\FileRW\obj\Debug\FileRW.pdb
