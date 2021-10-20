@@ -43,15 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Displays\ConsoleUI\Menu.cs" />
+    <Compile Include="Inventory\InventoryRepository.cs" />
+    <Compile Include="ProductModels\CPU.cs" />
+    <Compile Include="ProductModels\GPU.cs" />
+    <Compile Include="ProductModels\Interface\ISerializer.cs" />
+    <Compile Include="ProductModels\MOBO.cs" />
+    <Compile Include="ProductModels\ProductModel.cs" />
+    <Compile Include="ProductModels\RAM.cs" />
+    <Compile Include="ProductModels\STORAGE.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseManagementModules\Cart.cs" />
+    <Compile Include="PurchaseManagementModules\ReceiptGenerator.cs" />
+    <Compile Include="PurchaseManagementModules\SalesRepository.cs" />
+    <Compile Include="SalesReporter\SalesReporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Displays\FormsUI\" />
+    <Folder Include="DataOutput\Receipts\" />
+    <Folder Include="DataOutput\SalesReports\" />
+    <Folder Include="ProductManagementModules\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FileRW\FileRW.csproj">
@@ -62,6 +75,14 @@
       <Project>{08752cd8-22c3-4b07-87d4-9f496887fbbe}</Project>
       <Name>Validator</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataOutput\Sales\purchases.txt" />
+    <Content Include="Inventory\repo\cpu_inventory.txt" />
+    <Content Include="Inventory\repo\gpu_inventory.txt" />
+    <Content Include="Inventory\repo\mobo_inventory.txt" />
+    <Content Include="Inventory\repo\ram_inventory.txt" />
+    <Content Include="Inventory\repo\storage_inventory.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

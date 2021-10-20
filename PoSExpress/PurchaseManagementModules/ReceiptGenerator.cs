@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PoS.Displays.ConsoleUI
+namespace PoS.PurchaseManagementModules
 {
-    public class Menu
+    class ReceiptGenerator
     {
+        public void generateReceipt()
+        {
 
+        }
     }
 }
