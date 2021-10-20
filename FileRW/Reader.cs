@@ -8,5 +8,6 @@ namespace FileRW
 {
     class Reader
     {
+        public 
     }
 }

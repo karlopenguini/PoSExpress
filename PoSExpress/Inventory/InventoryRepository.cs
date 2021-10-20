@@ -4,45 +4,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PoS.ProductModels;
-
+using System.IO;
 namespace PoS.Inventory
 {
     public class InventoryRepository
     {
-        public List<CPU> listOfCPU { get; set; }
-        public List<GPU> listOfGPU { get; set; }
-        public List<MOBO> listOfMOBO { get; set; }
-        public List<RAM> listOfRAM { get; set; }
-        public List<STORAGE> listOfSTORAGE { get; set; }
-
-        public void addCPU() { }
-        public void addGPU() { }
-        public void addMOBO() { }
-        public void addRAM() { }
-        public void addSTORAGE() { }
-        public CPU getCPU(string productName) 
+        public void AddCPU(CPU myCPU) 
         {
-            
+            string cpuInventoryFile = ".\\repo\\cpu_inventory.txt";
+            string cpuProperties = myCPU.Serialize();
+
+            using(StreamWriter sw = File.AppendText(cpuInventoryFile))
+            {
+                sw.WriteLine(cpuProperties);
+            }
         }
-        public GPU getGPU(string productName) 
+
+        public CPU GetCPU(string productName)
         {
+            string cpuInventoryFile = ".\\repo\\cpu_inventory.txt";
+            string[] cpuList = File.ReadAllLines(cpuInventoryFile);
+            foreach (string cpu in cpuList)
+            {
+                string cpuProductName = cpu.Split('|')[0]; // Get productName
 
+                if(productName == cpuProductName)
+                {
+                    return CPU.Deserialize(cpu);
+                }
+            }
+            return null;
         }
-        public MOBO getMOBO(string productName) 
-        { 
 
+        public List<CPU> CPUCatalogue()
+        {
+            string cpuInventoryFile = ".\\repo\\cpu_inventory.txt";
+            string[] cpuList = File.ReadAllLines(cpuInventoryFile);
+            List<CPU> CPUCatalogue = new List<CPU>();
+            foreach (string cpu in cpuList)
+            {
+                CPUCatalogue.Add(CPU.Deserialize(cpu));
+            }
+            return null;
         }
-        public RAM getRAM(string productName) 
-        { 
-
+        
+        
+        public void IncreaseStock(ProductModel product) { }
+        public void DecreaseStock(ProductModel product) { }
+        public void ChangePrice(ProductModel product, int newPrice)
+        {
+           product.price = newPrice;
         }
-        public MOBO getSTORAGE(string productName) 
-        { 
-
-        }
-
-        public void increaseStock(ProductModel product) { }
-        public void decreaseStock(ProductModel product) { }
-
     }
 }

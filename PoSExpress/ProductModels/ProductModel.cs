@@ -11,7 +11,7 @@ namespace PoS.ProductModels
         public string productName { get; set; }
         public string brand { get; set; }
         public decimal price { get; set; }
-        public int stock { get; set; }
+        public uint stock { get; set; }
 
     }
 }
