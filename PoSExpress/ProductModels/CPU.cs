@@ -45,6 +45,7 @@ namespace PoS.ProductModels
         public static CPU Deserialize(string cpuPropertyString)
         {
             string[] cpuProperties = cpuPropertyString.Split('|');
+
             string _productName = cpuProperties[0];
             string _brand = cpuProperties[1];
             decimal _price = Convert.ToDecimal(cpuProperties[2]);

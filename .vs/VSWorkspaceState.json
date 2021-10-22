@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\PoSExpress",
+    "\\PoSExpress\\Inventory",
     "\\PoSExpress\\ProductModels",
+    "\\PoSExpress\\ProductModels\\Interface",
     "\\PoSExpress\\Properties"
   ],
-  "SelectedNode": "\\PoSExpress\\ProductModels\\CPU.cs",
+  "SelectedNode": "\\PoSExpress\\ProductModels\\STORAGE.cs",
   "PreviewInSolutionExplorer": false
 }
