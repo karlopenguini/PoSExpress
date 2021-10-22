@@ -9,6 +9,19 @@ namespace PoS.Inventory
 {
     public class InventoryRepository
     {
+        public InventoryRepository()
+        {
+            CPUInventory = UpdateCPUInventory();
+        }
+        private List<CPU> _CPUInventory;
+        public List<CPU> CPUInventory
+        {
+            get { return _CPUInventory; }
+            set { _CPUInventory = value; }
+        }
+
+
+
         public void AddCPU(CPU myCPU) 
         {
             string cpuInventoryFile = ".\\repo\\cpu_inventory.txt";
@@ -18,26 +31,22 @@ namespace PoS.Inventory
             {
                 sw.WriteLine(cpuProperties);                                        // Write properties to string
             }
+            
         }
 
         public CPU GetCPU(string productName)
         {
-            string cpuInventoryFile = ".\\repo\\cpu_inventory.txt";
-            string[] cpuList = File.ReadAllLines(cpuInventoryFile);
-
-            foreach (string cpu in cpuList)
+            foreach (CPU cpu in CPUInventory)
             {
-                string cpuProductName = cpu.Split('|')[0];                          // Get productName
-
-                if(productName == cpuProductName)
+                if(productName == cpu.productName)
                 {
-                    return CPU.Deserialize(cpu);                                    // Return CPU Object
+                    return cpu;                                                     // Return CPU Object
                 }
             }
             return null;
         }
 
-        public List<CPU> CPUCatalogue()
+        public List<CPU> UpdateCPUInventory()
         {
             string cpuInventoryFile = ".\\repo\\cpu_inventory.txt";
             string[] cpuList = File.ReadAllLines(cpuInventoryFile);
@@ -46,10 +55,10 @@ namespace PoS.Inventory
             {
                 CPUCatalogue.Add(CPU.Deserialize(cpu));                             // Instantiate cpu from text per line and add to list
             }
-            return null;
+            return CPUCatalogue;
         }
-        
-        
+
+
         public void IncreaseStock(string category,string productName, int inc) 
         {
             string path = "";
@@ -88,9 +97,12 @@ namespace PoS.Inventory
 
                     string updatedProductStock = String.Join("|", productToUpdate);                         // Revert list of the product you want to change back to a string
                     productList[index] = updatedProductStock;                                               // Replace old product details with new product details with increased stock
+                    
+
+                    string UPDATED_TEXT_FILE_CONTENT = String.Join("\n", productList);
                     using (StreamWriter reWriter = new StreamWriter(path, false))
                     {
-                        reWriter.Write(productList);                                                        // Rewrite the whole text file
+                        reWriter.Write(UPDATED_TEXT_FILE_CONTENT);                                          // Rewrite the whole text file
                     }
                 }
 
@@ -136,9 +148,11 @@ namespace PoS.Inventory
 
                     string updatedProductStock = String.Join("|", productToUpdate);                         // Revert list of the product you want to change back to a string
                     productList[index] = updatedProductStock;                                               // Replace old product details with new product details with increased stock
+
+                    string UPDATED_TEXT_FILE_CONTENT = String.Join("\n", productList);
                     using (StreamWriter reWriter = new StreamWriter(path, false))
                     {
-                        reWriter.Write(productList);                                                        // Rewrite the whole text file
+                        reWriter.Write(UPDATED_TEXT_FILE_CONTENT);                                          // Rewrite the whole text file
                     }
                 }
 
@@ -184,9 +198,11 @@ namespace PoS.Inventory
 
                     string updatedProductStock = String.Join("|", productToUpdate);                         // Revert list of the product you want to change back to a string
                     productList[index] = updatedProductStock;                                               // Replace old product details with new product details with increased stock
+
+                    string UPDATED_TEXT_FILE_CONTENT = String.Join("\n", productList);
                     using (StreamWriter reWriter = new StreamWriter(path, false))
                     {
-                        reWriter.Write(productList);                                                        // Rewrite the whole text file
+                        reWriter.Write(UPDATED_TEXT_FILE_CONTENT);                                          // Rewrite the whole text file
                     }
                 }
 
