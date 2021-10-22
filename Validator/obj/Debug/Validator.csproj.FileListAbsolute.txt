@@ -1,0 +1,6 @@
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\Validator\bin\Debug\Validator.dll
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\Validator\bin\Debug\Validator.pdb
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\Validator\obj\Debug\Validator.csproj.AssemblyReference.cache
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\Validator\obj\Debug\Validator.csproj.CoreCompileInputs.cache
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\Validator\obj\Debug\Validator.dll
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\Validator\obj\Debug\Validator.pdb

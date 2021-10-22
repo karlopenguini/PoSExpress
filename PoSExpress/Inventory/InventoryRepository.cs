@@ -11,6 +11,22 @@ namespace PoS.Inventory
     {
         public InventoryRepository()
         {
+            string repoDirectoryPath = @".\repo";
+
+            try
+            {
+                // Determine whether the directory exists.
+                if (!Directory.Exists(repoDirectoryPath))
+                {
+                    DirectoryInfo repoDirectory = Directory.CreateDirectory(repoDirectoryPath);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+            }
+            
             CPUInventory = UpdateCPUInventory();
         }
         private List<CPU> _CPUInventory;
@@ -24,7 +40,7 @@ namespace PoS.Inventory
 
         public void AddCPU(CPU myCPU) 
         {
-            string cpuInventoryFile = ".\\repo\\cpu_inventory.txt";
+            string cpuInventoryFile = @".\repo\cpu_inventory.txt";
             string cpuProperties = myCPU.Serialize();                               // Convert CPU object properties to string
 
             using(StreamWriter sw = File.AppendText(cpuInventoryFile))          
@@ -48,7 +64,23 @@ namespace PoS.Inventory
 
         public List<CPU> UpdateCPUInventory()
         {
-            string cpuInventoryFile = ".\\repo\\cpu_inventory.txt";
+            string path = @".\repo\cpu_inventory.txt";
+            try
+            {
+                // Determine whether the directory exists.
+                if (!Directory.Exists(path))
+                {
+                    FileStream fs = File.Create(@".\repo\cpu_inventory.txt");
+                    fs.Close();
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+            }
+
+            string cpuInventoryFile = @".\repo\cpu_inventory.txt";
             string[] cpuList = File.ReadAllLines(cpuInventoryFile);
             List<CPU> CPUCatalogue = new List<CPU>();                               // Instantiate list of cpus
             foreach (string cpu in cpuList)

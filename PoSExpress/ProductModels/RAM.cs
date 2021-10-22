@@ -8,7 +8,7 @@ namespace PoS.ProductModels
 {
 	public class RAM : ProductModel, ISerializer
 	{
-		public RAM(string _productName, string _brand, decimal _price, int _stock, string _ramSize, int _ramSpeed, byte _ramModule)
+		public RAM(string _productName, string _brand, decimal _price, uint _stock, string _ramSize, int _ramSpeed, byte _ramModule)
 		{
 			productName = _productName;
 			brand = _brand;
@@ -42,7 +42,7 @@ namespace PoS.ProductModels
 			return $"{productName},{brand},{price},{stock},{ramSize},{ramSpeed},{ramModule}";
 		}
 
-		public static RAM Deserialize(string _productName, string _brand, decimal _price, int _stock, string _ramSize, int _ramSpeed, byte _ramModule)
+		public static RAM Deserialize(string _productName, string _brand, decimal _price, uint _stock, string _ramSize, int _ramSpeed, byte _ramModule)
 		{
 			RAM newRAM = new RAM(_productName, _brand, _price, _stock, _ramSize, _ramSpeed, _ramModule);
 			return newRAM;

@@ -3,3 +3,7 @@ C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\FileRW\bin\Debug\FileRW.pdb
 C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\FileRW\obj\Debug\FileRW.csproj.CoreCompileInputs.cache
 C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\FileRW\obj\Debug\FileRW.dll
 C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\FileRW\obj\Debug\FileRW.pdb
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\FileRW\obj\Debug\FileRW.csproj.AssemblyReference.cache
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\FileRW\obj\Debug\FileRW.csproj.CoreCompileInputs.cache
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\FileRW\obj\Debug\FileRW.dll
+C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\FileRW\obj\Debug\FileRW.pdb

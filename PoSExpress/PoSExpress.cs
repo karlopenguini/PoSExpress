@@ -4,9 +4,11 @@ namespace PoS
 {
     class PoSExpress
     {
-        static void Main(string[] args)
+        static void Main()
         {
             InventoryRepository ShopInventory = new InventoryRepository();
+            Console.Write("test");
+            Console.ReadKey();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace PoS.ProductModels
 {
     public class GPU : ProductModel, ISerializer
     {
-        public GPU(string _productName, string _brand, decimal _price, int _stock, string _gpuChipset, string _gpuMemoryType, ushort _coreClock)
+        public GPU(string _productName, string _brand, decimal _price, uint _stock, string _gpuChipset, string _gpuMemoryType, ushort _coreClock)
         {
             productName = _productName;
             brand = _brand;
@@ -41,7 +41,7 @@ namespace PoS.ProductModels
             return $"{productName},{brand},{price},{stock},{gpuChipset},{gpuMemoryType},{coreClock}";
         }
 
-        public static GPU Deserialize(string _productName, string _brand, decimal _price, int _stock, string _gpuChipset, string _gpuMemoryType, ushort _coreClock)
+        public static GPU Deserialize(string _productName, string _brand, decimal _price, uint _stock, string _gpuChipset, string _gpuMemoryType, ushort _coreClock)
         {
             GPU newGPU = new GPU(_productName, _brand, _price, _stock, _gpuChipset, _gpuMemoryType, _coreClock);
             return newGPU;
