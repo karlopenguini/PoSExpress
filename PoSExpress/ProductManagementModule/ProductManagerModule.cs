@@ -16,6 +16,7 @@ namespace PoS.ProductManagementModules
             {
                 ShowMainMenu();
                 input = Console.ReadLine();
+
                 switch (input)
                 {
                     case "1":
