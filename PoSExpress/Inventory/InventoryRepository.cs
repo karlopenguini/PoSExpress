@@ -26,9 +26,10 @@ namespace PoS.Inventory
             {
                 Console.WriteLine("The process failed: {0}", e.ToString());
             }
-            
+
             CPUInventory = UpdateCPUInventory();
         }
+
         private List<CPU> _CPUInventory;
         public List<CPU> CPUInventory
         {

@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Inventory\InventoryRepository.cs" />
-    <Compile Include="ProductManagementModules\ProductManager.cs" />
+    <Compile Include="ProductManagementModule\ProductManagerModule.cs" />
     <Compile Include="ProductModels\CPU.cs" />
     <Compile Include="ProductModels\GPU.cs" />
     <Compile Include="ProductModels\Interface\ISerializer.cs" />
@@ -54,18 +54,11 @@
     <Compile Include="ProductModels\STORAGE.cs" />
     <Compile Include="PoSExpress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurchaseManagementModules\Cart.cs" />
-    <Compile Include="PurchaseManagementModules\ReceiptGenerator.cs" />
-    <Compile Include="PurchaseManagementModules\SalesRepository.cs" />
-    <Compile Include="SalesReporter\SalesReporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataOutput\Receipts\" />
-    <Folder Include="DataOutput\SalesReports\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FileRW\FileRW.csproj">
       <Project>{ca93e0d4-11c1-4d30-adfe-2621887cbec2}</Project>
@@ -75,14 +68,6 @@
       <Project>{08752cd8-22c3-4b07-87d4-9f496887fbbe}</Project>
       <Name>Validator</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DataOutput\Sales\purchases.txt" />
-    <Content Include="Inventory\repo\cpu_inventory.txt" />
-    <Content Include="Inventory\repo\gpu_inventory.txt" />
-    <Content Include="Inventory\repo\mobo_inventory.txt" />
-    <Content Include="Inventory\repo\ram_inventory.txt" />
-    <Content Include="Inventory\repo\storage_inventory.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
