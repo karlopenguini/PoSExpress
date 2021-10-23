@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PoS.Inventory;
 
-namespace PoS.ProductManagementModules
+namespace PoS.ProductManagementModule
 {
     public class ProductManagerModule
     {
-        public void ProductManager()
+        public void ProductManager(Dictionary<string, InventoryRepository> Inventory)
         {
             bool ProgramLooping = true;
             string input;
@@ -20,6 +21,7 @@ namespace PoS.ProductManagementModules
                 switch (input)
                 {
                     case "1":
+                        ProductRegistrar InitializeProductRegistration = new ProductRegistrar(Inventory);
                         break;
                     case "2":
                         break;
@@ -47,6 +49,6 @@ namespace PoS.ProductManagementModules
                     "\t5. Back\n\n" +
                     "> ");
         }
-        
     }
+    
 }

@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using PoS.Inventory;
-using PoS.ProductManagementModules;
+using PoS.ProductManagementModule;
 
 namespace PoS
 {
@@ -8,8 +9,24 @@ namespace PoS
     {
         public static void Main()
         {
-            ProductManagerModule PoSProductManager = new ProductManagerModule();
-            PoSExpress MenuViewer = new PoSExpress();
+            ProductManagerModule            PoSProductManager =         new ProductManagerModule();
+
+            CPUInventoryRepository          CPUInventory =              new CPUInventoryRepository();
+            GPUInventoryRepository          GPUInventory =              new GPUInventoryRepository();
+            MOBOInventoryRepository         MOBOInventory =             new MOBOInventoryRepository();
+            RAMInventoryRepository          RAMInventory =              new RAMInventoryRepository();
+            STORAGEInventoryRepository      STORAGEInventory =          new STORAGEInventoryRepository();
+
+            Dictionary<string, InventoryRepository> Inventory = new Dictionary<string, InventoryRepository>
+            {
+                {"CPU", CPUInventory },
+                {"GPU", GPUInventory },
+                {"MOBO", MOBOInventory },
+                {"RAM", RAMInventory },
+                {"STORAGE", STORAGEInventory }
+            };
+            
+            PoSExpress                      MenuViewer =                new PoSExpress();
 
             bool ProgramLooping = true;
             string input;
@@ -21,7 +38,7 @@ namespace PoS
                 switch (input)
                 {
                     case "1":
-                        PoSProductManager.ProductManager();
+                        PoSProductManager.ProductManager(Inventory);
                         break;
                     case "2":
                         break;

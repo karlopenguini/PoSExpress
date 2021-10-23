@@ -39,14 +39,22 @@ namespace PoS.ProductModels
 
 		public string Serialize()
 		{
-			return $"{productName},{brand},{price},{stock},{moboRAMSlots},{moboSize},{moboSocket}";
+			return $"{productName}|{brand}|{price}|{stock}|{moboRAMSlots}|{moboSize}|{moboSocket}";
 		}
-
-		public static MOBO Deserialize(string _productName, string _brand, decimal _price, uint _stock, byte _moboRAMSlots, string _moboSize, string _moboSocket)
+		public static MOBO Deserialize(string moboPropertyString)
 		{
+			string[] moboProperties = moboPropertyString.Split('|');
+
+			string _productName = moboProperties[0];
+			string _brand = moboProperties[1];
+			decimal _price = Convert.ToDecimal(moboProperties[2]);
+			uint _stock = Convert.ToUInt32(moboProperties[3]);
+			byte _moboRAMSlots = Convert.ToByte(moboProperties[4]);
+			string _moboSize = moboProperties[5];
+			string _moboSocket = moboProperties[6];
+
 			MOBO newMOBO = new MOBO(_productName, _brand, _price, _stock, _moboRAMSlots, _moboSize, _moboSocket);
 			return newMOBO;
 		}
 	}
-
 }

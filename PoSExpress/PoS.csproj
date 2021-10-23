@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Inventory\InventoryRepository.cs" />
     <Compile Include="ProductManagementModule\ProductManagerModule.cs" />
+    <Compile Include="ProductManagementModule\ProductRegistrar.cs" />
     <Compile Include="ProductModels\CPU.cs" />
     <Compile Include="ProductModels\GPU.cs" />
     <Compile Include="ProductModels\Interface\ISerializer.cs" />
@@ -58,7 +59,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FileRW\FileRW.csproj">
       <Project>{ca93e0d4-11c1-4d30-adfe-2621887cbec2}</Project>
