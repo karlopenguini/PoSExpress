@@ -192,9 +192,9 @@ namespace PoS.Inventory
         public virtual CPU GetCPU(string productName) { return null; }
         public virtual void UpdateCPUInventory() { }
 
-        public override virtual void AddGPU(GPU myGPU) { }
-        public override virtual GPU GetGPU(string productName) { return null; }
-        public override virtual List<GPU> UpdateGPUInventory() { return null; }
+        public virtual void AddGPU(GPU myGPU) { }
+        public virtual GPU GetGPU(string productName) { return null; }
+        public virtual List<GPU> UpdateGPUInventory() { return null; }
 
         public virtual void AddMOBO(MOBO myMOBO) { }
         public virtual MOBO GetMOBO(string productName) { return null; }

@@ -44,12 +44,20 @@ namespace Validator
 
         public static bool IsValidPrice(string input)
         {
-            if (!Decimal.TryParse(input, out decimal result))
+            if(decimal.TryParse(input, out _))
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
+        }
 
+        public static bool IsValidStock(string input)
+        {
+            if(uint.TryParse(input, out _))
+            {
+                return true;
+            }
+            return false;
         }
         // is input for price valid? data type = decimal
         // is input for stock valid? data type = uint

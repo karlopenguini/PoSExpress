@@ -77,7 +77,7 @@ namespace PoS.ProductManagementModule
                 Console.Write("Price\n\n" +
                     "> ");
                 inputPrice = Console.ReadLine();
-            } while (ProductInformationValidator.IsValidBrand(inputPrice));
+            } while (ProductInformationValidator.IsValidPrice(inputPrice));
             decimal price = decimal.Parse(inputPrice);
             Console.Clear();
             
@@ -88,7 +88,7 @@ namespace PoS.ProductManagementModule
                 Console.Write("Stock\n\n" +
                     "> ");
                 inputStock = Console.ReadLine();
-            } while (ProductInformationValidator.IsValidBrand(inputStock));
+            } while (ProductInformationValidator.IsValidStock(inputStock));
             uint stock = uint.Parse(inputStock);
             Console.Clear();
            
