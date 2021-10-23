@@ -7,9 +7,9 @@ using PoS.Inventory;
 
 namespace PoS.ProductManagementModule
 {
-    public class ProductManagerModule
+    public class ProductManagerView
     {
-        public void ProductManager(Dictionary<string, InventoryRepository> Inventory)
+        public void ProductManager(PoSInventory PoSInventoryRepository)
         {
             bool ProgramLooping = true;
             string input;
@@ -21,18 +21,11 @@ namespace PoS.ProductManagementModule
                 switch (input)
                 {
                     case "1":
-                        ProductRegistrar InitializeProductRegistration = new ProductRegistrar(Inventory);
+                        ProductRegistrar InitProductRegistration = new ProductRegistrar(PoSInventoryRepository);
                         break;
                     case "2":
+                        ProductPriceChanger InitProductPriceChanger = new ProductPriceChanger(PoSInventoryRepository);
                         break;
-                    case "3":
-                        break;
-                    case "4":
-                        break;
-                    case "5":
-                        ProgramLooping = false;
-                        break;
-
                 }
             }
         }

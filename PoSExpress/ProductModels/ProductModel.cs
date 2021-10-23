@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PoS.ProductModels
 {
-    public class ProductModel
+    public abstract class ProductModel
     {
         public string productName { get; set; }
         public string brand { get; set; }

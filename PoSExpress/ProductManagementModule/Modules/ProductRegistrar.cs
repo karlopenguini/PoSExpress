@@ -11,13 +11,37 @@ namespace PoS.ProductManagementModule
 {
     public class ProductRegistrar
     {
-        public ProductRegistrar(Dictionary<string, InventoryRepository> Inventory)
+        public ProductRegistrar(PoSInventory PoSInventoryRepository)
         {
+            string productCategory = GetProductCategory();
+            string productName = GetProductName();
+            string brand = GetBrand();
+            decimal price = GetPrice();
+            uint stock = GetStock();
+           
+            switch (productCategory)
+            {
+                case "CPU":
+                    CPURegistrar CPURegistration = new CPURegistrar();
 
+                    byte cpuCoreCount = CPURegistration.GetCPUCoreCount();
+                    string cpuSocket = CPURegistration.GetCPUSocket();
+                    bool cpuCooler = CPURegistration.GetCPUCooler();
+
+                    CPU newCPU = new CPU(productName, brand, price, stock, cpuCoreCount, cpuSocket, cpuCooler);
+                    PoSInventoryRepository.CPUInventory.AddCPU(newCPU);
+                    break;
+            }
+        }
+
+        public string GetProductCategory()
+        {
+            Console.Clear();
             string inputCategory;
             string productCategory = "";
             do
             {
+                Console.Clear();
                 Console.Write("Register new Product Model\n\n");
                 Console.Write("Product Category\n\n" +
                     "\t1. CPU\n" +
@@ -27,7 +51,7 @@ namespace PoS.ProductManagementModule
                     "\t5. STORAGE\n\n" +
                     "> ");
                 inputCategory = Console.ReadLine();
-            } while (ProductInformationValidator.IsValidCategory(inputCategory));
+            } while (!ProductInformationValidator.IsValidCategory(inputCategory));
             switch (inputCategory)
             {
                 case "1":
@@ -47,67 +71,68 @@ namespace PoS.ProductManagementModule
                     break;
             }
             Console.Clear();
-           
+            return productCategory;
+        }
+        public string GetProductName()
+        {
             string inputName;
             do
             {
+                Console.Clear();
                 Console.Write("Register new Product Model\n\n");
                 Console.Write("Product Name\n\n" +
                     "> ");
                 inputName = Console.ReadLine();
-            } while (ProductInformationValidator.IsValidProductName(inputName));
+            } while (!ProductInformationValidator.IsValidProductName(inputName));
             string productName = inputName;
             Console.Clear();
-           
+            return productName;
+        }
+        public string GetBrand()
+        {
             string inputBrand;
             do
             {
+                Console.Clear();
                 Console.Write("Register new Product Model\n\n");
                 Console.Write("Brand\n\n" +
                     "> ");
                 inputBrand = Console.ReadLine();
-            } while (ProductInformationValidator.IsValidBrand(inputBrand));
+            } while (!ProductInformationValidator.IsValidBrand(inputBrand));
             string brand = inputBrand;
             Console.Clear();
-           
+            return brand;
+        }
+        public decimal GetPrice()
+        {
             string inputPrice;
             do
             {
+                Console.Clear();
                 Console.Write("Register new Product Model\n\n");
                 Console.Write("Price\n\n" +
                     "> ");
                 inputPrice = Console.ReadLine();
-            } while (ProductInformationValidator.IsValidPrice(inputPrice));
+            } while (!ProductInformationValidator.IsValidPrice(inputPrice));
             decimal price = decimal.Parse(inputPrice);
             Console.Clear();
-            
+            return price;
+        }
+        public uint GetStock()
+        {
             string inputStock;
             do
             {
+                Console.Clear();
                 Console.Write("Register new Product Model\n\n");
                 Console.Write("Stock\n\n" +
                     "> ");
                 inputStock = Console.ReadLine();
-            } while (ProductInformationValidator.IsValidStock(inputStock));
+            } while (!ProductInformationValidator.IsValidStock(inputStock));
             uint stock = uint.Parse(inputStock);
             Console.Clear();
-           
-            switch (productCategory)
-            {
-                case "CPU":
-                    CPURegistrar CPURegistration = new CPURegistrar();
-
-                    byte cpuCoreCount = CPURegistration.GetCPUCoreCount();
-                    string cpuSocket = CPURegistration.GetCPUSocket();
-                    bool cpuCooler = CPURegistration.GetCPUCooler();
-
-                    CPU newCPU = new CPU(productName, brand, price, stock, cpuCoreCount, cpuSocket, cpuCooler);
-
-                    Inventory["CPU"].AddCPU(newCPU);
-                    break;
-            }
+            return stock;
         }
-
     }
     internal class CPURegistrar
     {
@@ -116,11 +141,12 @@ namespace PoS.ProductManagementModule
             string inputCoreCount;
             do
             {
+                Console.Clear();
                 Console.Write("Register new Product Model\n\n");
                 Console.Write("Core Count\n\n" +
                     "> ");
                 inputCoreCount = Console.ReadLine();
-            } while (CPUProductInformationValidator.IsValidCPUCoreCount(inputCoreCount));
+            } while (!CPUProductInformationValidator.IsValidCPUCoreCount(inputCoreCount));
             byte cpuCoreCount = byte.Parse(inputCoreCount);
             Console.Clear();
             return cpuCoreCount;
@@ -131,11 +157,12 @@ namespace PoS.ProductManagementModule
             string inputSocket;
             do
             {
+                Console.Clear();
                 Console.Write("Register new Product Model\n\n");
                 Console.Write("CPU Socket\n\n" +
                     "> ");
                 inputSocket = Console.ReadLine();
-            } while (CPUProductInformationValidator.IsValidCPUCoreCount(inputSocket));
+            } while (!CPUProductInformationValidator.IsValidCPUSocket(inputSocket));
             string cpuSocket = inputSocket;
             Console.Clear();
             return cpuSocket;
@@ -147,13 +174,14 @@ namespace PoS.ProductManagementModule
             bool cpuCooler = false;
             do
             {
+                Console.Clear();
                 Console.Write("Register new Product Model\n\n");
                 Console.Write("CPU Socket\n\n" +
                     "1. With CPU Cooler\n" +
                     "2. No CPU Cooler\n\n" +
                     "> ");
                 inputCooler = Console.ReadLine();
-            } while (CPUProductInformationValidator.IsValidCPUCooler(inputCooler));
+            } while (!CPUProductInformationValidator.IsValidCPUCooler(inputCooler));
             switch (inputCooler)
             {
                 case "1":

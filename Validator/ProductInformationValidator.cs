@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Windows.Forms;
 
 namespace Validator
@@ -17,28 +16,30 @@ namespace Validator
             
             if(input != "1" || input != "2" || input != "3" || input != "4" || input != "5")
             {
-                return false;
+                return true;
             }
-            return true;
+            MessageBox.Show("Input is not valid! 1-5 only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
         }
 
         public static bool IsValidBrand(string input)
         {
-            if(input.Any(ch => char.IsLetterOrDigit(ch) || char.IsWhiteSpace(ch)))
+            if(input.Any(ch => char.IsLetter(ch) || char.IsWhiteSpace(ch)))
             {
                 return true;
             }
+            MessageBox.Show("Input is not valid! Brand must contain letters or white spaces only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
         }
 
         public static bool IsValidProductName(string input)
         {
             input = input.ToUpper();
-            if(input.Any(ch => char.IsLetterOrDigit(ch) || char.IsWhiteSpace(ch)))
+            if(input.Any(ch => char.IsLetter(ch) || char.IsWhiteSpace(ch)))
             {
                 return true;
             }
-
+            MessageBox.Show("Input is not valid! Product name must contain letters or white spaces only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
         }
 
@@ -48,6 +49,7 @@ namespace Validator
             {
                 return true;
             }
+            MessageBox.Show("Input is not valid! Price must be a positive number only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
         }
 
@@ -57,6 +59,7 @@ namespace Validator
             {
                 return true;
             }
+            MessageBox.Show("Input is not valid! Stock must be a positive non-decimal number only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
         }
         // is input for price valid? data type = decimal
@@ -68,32 +71,32 @@ namespace Validator
         public static bool IsValidCPUCoreCount(string input)
         {
             
-            if (!Byte.TryParse(input, out byte result) || input != "0")
+            if (Byte.TryParse(input, out byte result) && input != "0")
             {
-                MessageBox.Show("Input is not valid! 1-255 only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
+                return true;
             }
-            return true;
+            MessageBox.Show("Input is not valid! 1-255 only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
         } 
         
         public static bool IsValidCPUSocket(string input)
         {
-            if (input.Length >= 11 || input.Any(ch => !char.IsLetterOrDigit(ch)))
+            if (input.Length <= 11 && input.All (ch => char.IsDigit(ch)))
             {
-                MessageBox.Show("Input is not valid! Up to 10 letters and digits only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
+                return true;
             }
-            return true;
+            MessageBox.Show("Input is not valid! Up to 10 letters and digits only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
         }
 
         public static bool IsValidCPUCooler(string input)
         {
-            if(input != "1" || input != "2")
+            if(input == "1" || input == "2")
             {
-                MessageBox.Show("Input is not valid! 1 or 2 only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
+                return true;
             }
-            return true;
+            MessageBox.Show("Input is not valid! 1 or 2 only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
         }
     }
     class GPUProductInformationValidator
