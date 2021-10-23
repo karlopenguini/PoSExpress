@@ -9,13 +9,13 @@ namespace PoS
         public static void Main()
         {
             ProductManagerModule PoSProductManager = new ProductManagerModule();
-
+            PoSExpress MenuViewer = new PoSExpress();
 
             bool ProgramLooping = true;
             string input;
             while (ProgramLooping)
             {
-                ShowMainMenu();
+                MenuViewer.ShowMainMenu();
                 input = Console.ReadLine().ToUpper();
 
                 switch (input)
@@ -35,7 +35,7 @@ namespace PoS
             }
         }
 
-        static void ShowMainMenu()
+        private void ShowMainMenu()
         {
             Console.Clear();
             Console.Write(
