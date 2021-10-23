@@ -41,7 +41,7 @@ namespace PoS.Inventory
             }
             return null;
         }
-        private void UpdateGPUInventory()
+        public void UpdateGPUInventory()
         {
             string path = @".\repo\gpu_inventory.txt";
             try
@@ -67,6 +67,15 @@ namespace PoS.Inventory
                 GPUCatalogue.Add(GPU.Deserialize(gpu));
             }
             GPUInventory = GPUCatalogue;
+        }
+
+        public bool IsGPURegistered(string productName)
+        {
+            List<string> productNames = new List<string>();
+
+            foreach (ProductModel model in GPUInventory) { productNames.Add(model.productName); }
+            if (productNames.Contains(productName)) { return true; }
+            return false;
         }
     }
 }

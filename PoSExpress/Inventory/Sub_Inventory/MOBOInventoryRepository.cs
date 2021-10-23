@@ -42,7 +42,7 @@ namespace PoS.Inventory
             }
             return null;
         }
-        private void UpdateMOBOInventory()
+        public void UpdateMOBOInventory()
         {
             string path = @".\repo\mobo_inventory.txt";
             try
@@ -68,6 +68,14 @@ namespace PoS.Inventory
                 MOBOCatalogue.Add(MOBO.Deserialize(mobo));
             }
             MOBOInventory = MOBOCatalogue;
+        }
+        public bool IsMOBORegistered(string productName)
+        {
+            List<string> productNames = new List<string>();
+
+            foreach (ProductModel model in MOBOInventory) { productNames.Add(model.productName); }
+            if (productNames.Contains(productName)) { return true; }
+            return false;
         }
     }
 }

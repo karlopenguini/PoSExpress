@@ -29,7 +29,7 @@ namespace PoS.Inventory
             }
         }
       
-        public void IncreaseStock(string category,string productName, int inc) 
+        public void IncreaseStock(string category,string productName, uint inc) 
         {
             string path = "";
             switch (category)                                                                               // Gets the path for the chosen category of the product you want to change the stock.
@@ -54,7 +54,7 @@ namespace PoS.Inventory
             List<string> productList = File.ReadAllLines(path).ToList();
             int index = 0;
 
-            foreach (string product in productList)
+            foreach (string product in productList.ToList())
             {
                 
                 string productNameToUpdate = product.Split('|')[0];                                         // Get productName
@@ -80,7 +80,7 @@ namespace PoS.Inventory
             }
         }
 
-        public void DecreaseStock(string category, string productName, int dec) 
+        public void DecreaseStock(string category, string productName, uint dec) 
         {
             string path = "";
             switch (category)                                                                               // Gets the path for the chosen category of the product you want to change the stock.
@@ -105,7 +105,7 @@ namespace PoS.Inventory
             List<string> productList = File.ReadAllLines(path).ToList();
             int index = 0;
 
-            foreach (string product in productList)
+            foreach (string product in productList.ToList())
             {
 
                 string productNameToUpdate = product.Split('|')[0];                                         // Get productName
@@ -155,9 +155,9 @@ namespace PoS.Inventory
             List<string> productList = File.ReadAllLines(path).ToList();
             int index = 0;
 
-            foreach (string product in productList)
+            foreach (string product in productList.ToList())
             {
-
+                
                 string productNameToUpdate = product.Split('|')[0];                                         // Get productName
 
                 if (productName == productNameToUpdate)                                                     // If productName input matched, initialize changing of stock

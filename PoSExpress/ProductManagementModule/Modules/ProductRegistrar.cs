@@ -13,125 +13,26 @@ namespace PoS.ProductManagementModule
     {
         public ProductRegistrar(PoSInventory PoSInventoryRepository)
         {
-            string productCategory = GetProductCategory();
-            string productName = GetProductName();
-            string brand = GetBrand();
-            decimal price = GetPrice();
-            uint stock = GetStock();
+            RegistrarInput RegistrarEncoder = new RegistrarInput();
+            string productCategory =    GeneralInput.GetProductCategory();
+            string productName =        RegistrarEncoder.GetNewProductName(PoSInventoryRepository);
+            string brand =              RegistrarEncoder.GetBrand();
+            decimal price =             RegistrarEncoder.GetPrice();
+            uint stock =                RegistrarEncoder.GetStock();
            
             switch (productCategory)
             {
                 case "CPU":
-                    CPURegistrar CPURegistration = new CPURegistrar();
+                    CPURegistrar CPUEncoder = new CPURegistrar();
 
-                    byte cpuCoreCount = CPURegistration.GetCPUCoreCount();
-                    string cpuSocket = CPURegistration.GetCPUSocket();
-                    bool cpuCooler = CPURegistration.GetCPUCooler();
+                    byte cpuCoreCount = CPUEncoder.GetCPUCoreCount();
+                    string cpuSocket =  CPUEncoder.GetCPUSocket();
+                    bool cpuCooler =    CPUEncoder.GetCPUCooler();
 
                     CPU newCPU = new CPU(productName, brand, price, stock, cpuCoreCount, cpuSocket, cpuCooler);
                     PoSInventoryRepository.CPUInventory.AddCPU(newCPU);
                     break;
             }
-        }
-
-        public string GetProductCategory()
-        {
-            Console.Clear();
-            string inputCategory;
-            string productCategory = "";
-            do
-            {
-                Console.Clear();
-                Console.Write("Register new Product Model\n\n");
-                Console.Write("Product Category\n\n" +
-                    "\t1. CPU\n" +
-                    "\t2. GPU\n" +
-                    "\t3. MOTHERBOARD\n" +
-                    "\t4. RAM\n" +
-                    "\t5. STORAGE\n\n" +
-                    "> ");
-                inputCategory = Console.ReadLine();
-            } while (!ProductInformationValidator.IsValidCategory(inputCategory));
-            switch (inputCategory)
-            {
-                case "1":
-                    productCategory = "CPU";
-                    break;
-                case "2":
-                    productCategory = "GPU";
-                    break;
-                case "3":
-                    productCategory = "MOTHERBOARD";
-                    break;
-                case "4":
-                    productCategory = "RAM";
-                    break;
-                case "5":
-                    productCategory = "STORAGE";
-                    break;
-            }
-            Console.Clear();
-            return productCategory;
-        }
-        public string GetProductName()
-        {
-            string inputName;
-            do
-            {
-                Console.Clear();
-                Console.Write("Register new Product Model\n\n");
-                Console.Write("Product Name\n\n" +
-                    "> ");
-                inputName = Console.ReadLine();
-            } while (!ProductInformationValidator.IsValidProductName(inputName));
-            string productName = inputName;
-            Console.Clear();
-            return productName;
-        }
-        public string GetBrand()
-        {
-            string inputBrand;
-            do
-            {
-                Console.Clear();
-                Console.Write("Register new Product Model\n\n");
-                Console.Write("Brand\n\n" +
-                    "> ");
-                inputBrand = Console.ReadLine();
-            } while (!ProductInformationValidator.IsValidBrand(inputBrand));
-            string brand = inputBrand;
-            Console.Clear();
-            return brand;
-        }
-        public decimal GetPrice()
-        {
-            string inputPrice;
-            do
-            {
-                Console.Clear();
-                Console.Write("Register new Product Model\n\n");
-                Console.Write("Price\n\n" +
-                    "> ");
-                inputPrice = Console.ReadLine();
-            } while (!ProductInformationValidator.IsValidPrice(inputPrice));
-            decimal price = decimal.Parse(inputPrice);
-            Console.Clear();
-            return price;
-        }
-        public uint GetStock()
-        {
-            string inputStock;
-            do
-            {
-                Console.Clear();
-                Console.Write("Register new Product Model\n\n");
-                Console.Write("Stock\n\n" +
-                    "> ");
-                inputStock = Console.ReadLine();
-            } while (!ProductInformationValidator.IsValidStock(inputStock));
-            uint stock = uint.Parse(inputStock);
-            Console.Clear();
-            return stock;
         }
     }
     internal class CPURegistrar
@@ -167,7 +68,6 @@ namespace PoS.ProductManagementModule
             Console.Clear();
             return cpuSocket;
         }
-
         public bool GetCPUCooler()
         {
             string inputCooler;

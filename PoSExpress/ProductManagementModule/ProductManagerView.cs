@@ -26,6 +26,15 @@ namespace PoS.ProductManagementModule
                     case "2":
                         ProductPriceChanger InitProductPriceChanger = new ProductPriceChanger(PoSInventoryRepository);
                         break;
+                    case "3":
+                        ProductStockIncrease InitProductStockIncrease = new ProductStockIncrease(PoSInventoryRepository);
+                        break;
+                    case "4":
+                        ProductStockDecrease InitProductStockDecrease = new ProductStockDecrease(PoSInventoryRepository);
+                        break;
+                    case "5":
+                        ProgramLooping = false;
+                        break;
                 }
             }
         }

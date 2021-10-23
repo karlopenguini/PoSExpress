@@ -43,7 +43,7 @@ namespace PoS.Inventory
             }
             return null;
         }
-        private void UpdateSTORAGEInventory()
+        public void UpdateSTORAGEInventory()
         {
             string path = @".\repo\storage_inventory.txt";
             try
@@ -69,6 +69,14 @@ namespace PoS.Inventory
                 STORAGECatalogue.Add(STORAGE.Deserialize(storage));
             }
             STORAGEInventory = STORAGECatalogue;
+        }
+        public bool IsSTORAGERegistered(string productName)
+        {
+            List<string> productNames = new List<string>();
+
+            foreach (ProductModel model in STORAGEInventory) { productNames.Add(model.productName); }
+            if (productNames.Contains(productName)) { return true; }
+            return false;
         }
     }
 }

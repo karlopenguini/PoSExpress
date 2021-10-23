@@ -53,6 +53,9 @@
     <Compile Include="Inventory\Sub_Inventory\MOBOInventoryRepository.cs" />
     <Compile Include="Inventory\Sub_Inventory\RAMInventoryRepository.cs" />
     <Compile Include="Inventory\Sub_Inventory\STORAGEInventoryRepository.cs" />
+    <Compile Include="ProductManagementModule\Modules\GeneralInput.cs" />
+    <Compile Include="ProductManagementModule\Modules\ProductStockDecrease.cs" />
+    <Compile Include="ProductManagementModule\Modules\ProductStockIncrease.cs" />
     <Compile Include="ProductManagementModule\ProductManagerView.cs" />
     <Compile Include="ProductManagementModule\Modules\ProductPriceChanger.cs" />
     <Compile Include="ProductManagementModule\Modules\ProductRegistrar.cs" />

@@ -42,7 +42,7 @@ namespace PoS.Inventory
             }
             return null;
         }
-        private void UpdateRAMInventory()
+        public void UpdateRAMInventory()
         {
             string path = @".\repo\ram_inventory.txt";
             try
@@ -68,6 +68,14 @@ namespace PoS.Inventory
                 RAMCatalogue.Add(RAM.Deserialize(ram));
             }
             RAMInventory = RAMCatalogue;
+        }
+        public bool IsRAMRegistered(string productName)
+        {
+            List<string> productNames = new List<string>();
+
+            foreach (ProductModel model in RAMInventory) { productNames.Add(model.productName); }
+            if (productNames.Contains(productName)) { return true; }
+            return false;
         }
     }
 }

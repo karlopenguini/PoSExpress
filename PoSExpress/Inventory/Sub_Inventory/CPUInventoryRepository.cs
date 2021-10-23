@@ -37,12 +37,12 @@ namespace PoS.Inventory
             {
                 if (productName == cpu.productName)
                 {
-                    return cpu;                                                     // Return CPU Object
+                    return cpu;                                                     
                 }
             }
             return null;
         }
-        private void UpdateCPUInventory()
+        public void UpdateCPUInventory()
         {
             string path = @".\repo\cpu_inventory.txt";
             try
@@ -72,5 +72,16 @@ namespace PoS.Inventory
             if (productNames.Contains(productName)) { return true; }
             return false;
         }
+        
+        public void ListAllCPU()
+        {
+            Console.Write("CPU CATALOG:\n");
+            foreach(CPU cpu in CPUInventory)
+            {
+                Console.WriteLine($"- {cpu.productName}");
+            }
+            Console.WriteLine("");
+        }
+    
     }
 }
