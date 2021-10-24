@@ -74,6 +74,7 @@
     <Compile Include="PurchaseManagementModule\PurchaseManagerView.cs" />
     <Compile Include="SalesManagementModule\Modules\QuantityPerProductReporter.cs" />
     <Compile Include="SalesManagementModule\Modules\SalesPerProductReporter.cs" />
+    <Compile Include="SalesManagementModule\Modules\TotalSalesReporter.cs" />
     <Compile Include="SalesManagementModule\SalesManagerView.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,12 +3,13 @@
     "",
     "\\PoSExpress",
     "\\PoSExpress\\Inventory",
+    "\\PoSExpress\\Inventory\\Sub_Inventory",
     "\\PoSExpress\\ProductManagementModule",
     "\\PoSExpress\\ProductManagementModule\\Modules",
     "\\PoSExpress\\ProductModels",
     "\\PoSExpress\\ProductModels\\Interface",
     "\\PoSExpress\\Properties"
   ],
-  "SelectedNode": "\\PoSExpress\\ProductManagementModule\\Modules\\GeneralInput.cs",
+  "SelectedNode": "\\PoSExpress\\ProductModels\\GPU.cs",
   "PreviewInSolutionExplorer": false
 }

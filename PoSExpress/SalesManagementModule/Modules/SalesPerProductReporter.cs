@@ -18,11 +18,11 @@ namespace PoS.SalesManagementModule
             string path = @".\reports\SPR_Report.txt";
 
             // CPU -> GPU -> MOBO -> RAM -> STORAGE
-            Dictionary<string, decimal[]> CPUDict = new Dictionary<string, decimal[]>();
-            Dictionary<string, decimal[]> GPUDict = new Dictionary<string, decimal[]>();
-            Dictionary<string, decimal[]> MOBODict = new Dictionary<string, decimal[]>();
-            Dictionary<string, decimal[]> RAMDict = new Dictionary<string, decimal[]>();
-            Dictionary<string, decimal[]> STORAGEDict = new Dictionary<string, decimal[]>();
+            Dictionary<string, decimal> CPUDict = new Dictionary<string, decimal>();
+            Dictionary<string, decimal> GPUDict = new Dictionary<string, decimal>();
+            Dictionary<string, decimal> MOBODict = new Dictionary<string, decimal>();
+            Dictionary<string, decimal> RAMDict = new Dictionary<string, decimal>();
+            Dictionary<string, decimal> STORAGEDict = new Dictionary<string, decimal>();
 
             string CPUHeader = "_______________________________________________________\n" +
                 "SOLD CPU PER PRODUCT\n" +
