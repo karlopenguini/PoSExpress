@@ -70,7 +70,6 @@ namespace PoS.LocalValidator
                         inputName = Console.ReadLine();
 
                     } while (!PoSInventoryRepository.CPUInventory.IsCPURegistered(inputName));
-
                     break;
                 case "GPU":
                     do
@@ -145,7 +144,7 @@ namespace PoS.LocalValidator
                 ValidName = PoSInventoryRepository.DoesProductExist(inputName);
                 if (ValidName)
                 {
-                    MessageBox.Show($"{inputName} does not exist! Please enter an existing product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"{inputName} already exists! Please enter a product that does not exist yet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
             } while (ValidName);

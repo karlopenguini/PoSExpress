@@ -129,7 +129,7 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("CPU Socket\n\n" +
+                Console.Write("CPU Cooler\n\n" +
                     "1. With CPU Cooler\n" +
                     "2. No CPU Cooler\n\n" +
                     "> ");
@@ -157,7 +157,7 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("GPU Chipset\n\n +" +
+                Console.Write("GPU Chipset\n\n" +
                     "> ");
                 inputChipset = Console.ReadLine();
             } while (!GPUProductInformationValidator.IsValidGPUChipset(inputChipset));
@@ -172,7 +172,7 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("GPU Memory Type\n\n +" +
+                Console.Write("GPU Memory Type\n\n" +
                     "> ");
                 inputMemoryType = Console.ReadLine();
             } while (!GPUProductInformationValidator.IsValidGPUMemoryType(inputMemoryType));
@@ -187,7 +187,7 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("GPU Core Clock\n\n +" +
+                Console.Write("GPU Core Clock\n\n" +
                     "> ");
                 inputCoreClock = Console.ReadLine();
             } while (!GPUProductInformationValidator.IsValidCoreClock(inputCoreClock));

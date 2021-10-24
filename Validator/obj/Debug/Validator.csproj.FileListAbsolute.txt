@@ -4,3 +4,9 @@ C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\Validator\obj\Deb
 C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\Validator\obj\Debug\Validator.csproj.CoreCompileInputs.cache
 C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\Validator\obj\Debug\Validator.dll
 C:\Users\Charles Secarro\Desktop\2 - 1T\IT111L\MACHINE PROBLEM\Validator\obj\Debug\Validator.pdb
+C:\Users\Josh\Source\Repos\PoSExpress\Validator\bin\Debug\Validator.dll
+C:\Users\Josh\Source\Repos\PoSExpress\Validator\bin\Debug\Validator.pdb
+C:\Users\Josh\Source\Repos\PoSExpress\Validator\obj\Debug\Validator.csproj.AssemblyReference.cache
+C:\Users\Josh\Source\Repos\PoSExpress\Validator\obj\Debug\Validator.csproj.CoreCompileInputs.cache
+C:\Users\Josh\Source\Repos\PoSExpress\Validator\obj\Debug\Validator.dll
+C:\Users\Josh\Source\Repos\PoSExpress\Validator\obj\Debug\Validator.pdb
