@@ -34,7 +34,7 @@ namespace PoS.PurchaseManagementModule
         {
             Console.Clear();
             Console.Write(
-                "Product Manager\n\n" +
+                "Purchase Manager\n\n" +
                     "\t1. Create Order\n" +
                     "\t2. Back\n\n" +
                     "> ");

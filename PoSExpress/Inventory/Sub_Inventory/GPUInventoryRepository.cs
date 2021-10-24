@@ -46,12 +46,8 @@ namespace PoS.Inventory
             string path = @".\repo\gpu_inventory.txt";
             try
             {
-                // Determine whether the directory exists.
-                if (!Directory.Exists(path))
-                {
-                    FileStream fs = File.Create(@".\repo\gpu_inventory.txt");
-                    fs.Close();
-                }
+                FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+                fs.Close();
 
             }
             catch (Exception e)

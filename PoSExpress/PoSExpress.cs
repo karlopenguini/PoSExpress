@@ -19,6 +19,7 @@ namespace PoS
             PoSExpress MenuViewer = new PoSExpress();
             bool ProgramLooping = true;
             string input;
+
             while (ProgramLooping)
             {
                 MenuViewer.ShowMainMenu();

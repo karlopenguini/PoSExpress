@@ -350,7 +350,7 @@ namespace PoS.LocalValidator
                         inputName = Console.ReadLine();
 
                         ValidMOBOInput = !PoSInventoryRepository.MOBOInventory.IsMOBORegistered(inputName) && !ValidMOBOInput;
-                        if (!ValidMOBOInput)
+                        if (ValidMOBOInput)
                         {
                             MessageBox.Show($"{inputName} is not registered! Please enter a registered motherboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }

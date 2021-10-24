@@ -70,7 +70,7 @@ namespace PoS.SalesManagementModule
         {
             Console.Clear();
             Console.Write(
-                "Product Manager\n\n" +
+                "Sales Manager\n\n" +
                     "\t1. Generate Quantity per Product Report\n" +
                     "\t2. Generate Sales per Product Report\n" +
                     "\t3. Generate Total Sales Report\n" +

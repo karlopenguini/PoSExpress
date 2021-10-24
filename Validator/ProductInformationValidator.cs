@@ -135,7 +135,7 @@ namespace Validator
     {
         public static bool IsValidMOBORAMSlots(string input)
         {
-            if (!Byte.TryParse(input, out _))
+            if (!byte.TryParse(input, out _))
             {
                 MessageBox.Show("Input is not valid! 1-255 only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -146,7 +146,7 @@ namespace Validator
         public static bool IsValidMOBOSize(string input)
         {
             input = input.ToUpper();
-            if (input != "ATX" || input != "MATX" || input != "ITX")
+            if (input != "ATX" && input != "MATX" && input != "ITX")
             {
                 MessageBox.Show("Input is not valid! ATX, MATX or ITX only.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;

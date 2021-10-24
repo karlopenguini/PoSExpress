@@ -85,6 +85,7 @@ namespace PoS.ProductManagementModule
 
                     break;
             }
+            
         }
     }
     internal class CPURegistrar
@@ -159,7 +160,7 @@ namespace PoS.ProductManagementModule
                 Console.Write("GPU Chipset\n\n +" +
                     "> ");
                 inputChipset = Console.ReadLine();
-            } while (GPUProductInformationValidator.IsValidGPUChipset(inputChipset));
+            } while (!GPUProductInformationValidator.IsValidGPUChipset(inputChipset));
             string gpuChipset = inputChipset;
             Console.Clear();
             return gpuChipset;
@@ -174,7 +175,7 @@ namespace PoS.ProductManagementModule
                 Console.Write("GPU Memory Type\n\n +" +
                     "> ");
                 inputMemoryType = Console.ReadLine();
-            } while (GPUProductInformationValidator.IsValidGPUMemoryType(inputMemoryType));
+            } while (!GPUProductInformationValidator.IsValidGPUMemoryType(inputMemoryType));
             string gpuMemoryType = inputMemoryType;
             Console.Clear();
             return gpuMemoryType;
@@ -189,7 +190,7 @@ namespace PoS.ProductManagementModule
                 Console.Write("GPU Core Clock\n\n +" +
                     "> ");
                 inputCoreClock = Console.ReadLine();
-            } while (GPUProductInformationValidator.IsValidCoreClock(inputCoreClock));
+            } while (!GPUProductInformationValidator.IsValidCoreClock(inputCoreClock));
             ushort gpuCoreClock = ushort.Parse(inputCoreClock);
             Console.Clear();
             return gpuCoreClock;
@@ -204,10 +205,10 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("MOBO RAM Slots\n\n +" +
+                Console.Write("MOBO RAM Slots\n\n" +
                     "> ");
                 inputRAMSlots = Console.ReadLine();
-            } while (MOBOProductInformationValidator.IsValidMOBORAMSlots(inputRAMSlots));
+            } while (!MOBOProductInformationValidator.IsValidMOBORAMSlots(inputRAMSlots));
             byte moboRAMSlots = Byte.Parse(inputRAMSlots);
             Console.Clear();
             return moboRAMSlots;
@@ -220,10 +221,10 @@ namespace PoS.ProductManagementModule
                 {
                     Console.Clear();
                     Console.Write("Register new Product Model\n\n");
-                    Console.Write("MOBO Size [ATX/ITX/MATX]\n\n +" +
+                    Console.Write("MOBO Size [ATX/ITX/MATX]\n\n" +
                         "> ");
                     inputSize = Console.ReadLine();
-                } while (MOBOProductInformationValidator.IsValidMOBOSize(inputSize));
+                } while (!MOBOProductInformationValidator.IsValidMOBOSize(inputSize));
                 string moboSize = inputSize;
                 Console.Clear();
                 return moboSize;
@@ -237,10 +238,10 @@ namespace PoS.ProductManagementModule
                 {
                     Console.Clear();
                     Console.Write("Register new Product Model\n\n");
-                    Console.Write("MOBO Socket\n\n +" +
+                    Console.Write("MOBO Socket\n\n" +
                         "> ");
                     inputSocket = Console.ReadLine();
-                } while (MOBOProductInformationValidator.IsValidMOBOSocket(inputSocket));
+                } while (!MOBOProductInformationValidator.IsValidMOBOSocket(inputSocket));
                 string moboSocket = inputSocket;
                 Console.Clear();
                 return moboSocket;
@@ -256,10 +257,10 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("RAM Size\n\n +" +
+                Console.Write("RAM Size\n\n" +
                     "> ");
                 inputSize = Console.ReadLine();
-            } while (RAMProductInformationValidator.IsValidRAMSize(inputSize));
+            } while (!RAMProductInformationValidator.IsValidRAMSize(inputSize));
             string ramSize = inputSize;
             Console.Clear();
             return ramSize;
@@ -271,10 +272,10 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("RAM Speed\n\n +" +
+                Console.Write("RAM Speed\n\n" +
                     "> ");
                 inputSpeed = Console.ReadLine();
-            } while (RAMProductInformationValidator.IsValidRAMSpeed(inputSpeed));
+            } while (!RAMProductInformationValidator.IsValidRAMSpeed(inputSpeed));
             int ramSpeed = Int32.Parse(inputSpeed);
             Console.Clear();
             return ramSpeed;
@@ -286,10 +287,10 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("RAM Module\n\n +" +
+                Console.Write("RAM Module\n\n" +
                     "> ");
                 inputModule = Console.ReadLine();
-            } while (RAMProductInformationValidator.IsValidRAMModule(inputModule));
+            } while (!RAMProductInformationValidator.IsValidRAMModule(inputModule));
             byte ramModule = Byte.Parse(inputModule);
             Console.Clear();
             return ramModule;
@@ -304,10 +305,10 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("Storage Type\n\n +" +
+                Console.Write("Storage Type\n\n" +
                     "> ");
                 inputType = Console.ReadLine();
-            } while (STORAGEProductInformationValidator.IsValidSTORAGEType(inputType));
+            } while (!STORAGEProductInformationValidator.IsValidSTORAGEType(inputType));
             string storageType = inputType;
             Console.Clear();
             return storageType;
@@ -319,10 +320,10 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("Storage Capacity\n\n +" +
+                Console.Write("Storage Capacity\n\n" +
                     "> ");
                 inputCapacity = Console.ReadLine();
-            } while (STORAGEProductInformationValidator.IsValidSTORAGECapacity(inputCapacity));
+            } while (!STORAGEProductInformationValidator.IsValidSTORAGECapacity(inputCapacity));
             string storageCapacity = inputCapacity;
             Console.Clear();
             return storageCapacity;
@@ -334,10 +335,10 @@ namespace PoS.ProductManagementModule
             {
                 Console.Clear();
                 Console.Write("Register new Product Model\n\n");
-                Console.Write("Storage Cache\n\n +" +
+                Console.Write("Storage Cache\n\n" +
                     "> ");
                 inputCache = Console.ReadLine();
-            } while (STORAGEProductInformationValidator.IsValidSTORAGECache(inputCache));
+            } while (!STORAGEProductInformationValidator.IsValidSTORAGECache(inputCache));
             string storageCache = inputCache;
             Console.Clear();
             return storageCache;

@@ -27,7 +27,6 @@ namespace PoS.PurchaseManagementModule
                 else
                 {
                     MessageBox.Show($"{productName} is out of Stock!" , "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    
                 }
                 
             } while (!CartEncoder.GetFlag(CurrentCart));
