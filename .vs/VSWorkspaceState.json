@@ -3,10 +3,12 @@
     "",
     "\\PoSExpress",
     "\\PoSExpress\\Inventory",
+    "\\PoSExpress\\ProductManagementModule",
+    "\\PoSExpress\\ProductManagementModule\\Modules",
     "\\PoSExpress\\ProductModels",
     "\\PoSExpress\\ProductModels\\Interface",
     "\\PoSExpress\\Properties"
   ],
-  "SelectedNode": "\\PoSExpress\\Inventory\\InventoryRepository.cs",
+  "SelectedNode": "\\PoSExpress\\ProductManagementModule\\Modules\\GeneralInput.cs",
   "PreviewInSolutionExplorer": false
 }

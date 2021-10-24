@@ -42,6 +42,7 @@ namespace PoS.Inventory
             }
             return null;
         }
+
         public void UpdateRAMInventory()
         {
             string path = @".\repo\ram_inventory.txt";
@@ -71,11 +72,31 @@ namespace PoS.Inventory
         }
         public bool IsRAMRegistered(string productName)
         {
-            List<string> productNames = new List<string>();
+            foreach (ProductModel model in RAMInventory)
+            {
+                if (model.productName == productName)
+                {
+                    return true;
+                }
+            }
 
-            foreach (ProductModel model in RAMInventory) { productNames.Add(model.productName); }
-            if (productNames.Contains(productName)) { return true; }
             return false;
+        }
+        public void ListAllRAM()
+        {
+            Console.Write("RAM CATALOG:\n");
+            foreach (RAM ram in RAMInventory)
+            {
+                Console.WriteLine($"- {ram.productName}");
+            }
+            Console.WriteLine("");
+        }
+        public void ListDetailedInformation()
+        {
+            foreach (RAM ram in RAMInventory)
+            {
+                Console.WriteLine(ram.Serialize());
+            }
         }
     }
 }

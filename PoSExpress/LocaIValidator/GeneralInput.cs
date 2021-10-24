@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using PoS.ProductModels;
 using Validator;
-
-namespace PoS.ProductManagementModule
+using PoS.PurchaseManagementModule;
+namespace PoS.LocalValidator
 {
     public class GeneralInput
     {
@@ -17,8 +17,9 @@ namespace PoS.ProductManagementModule
             string productCategory = "";
             do
             {
+                
                 Console.Clear();
-                Console.Write("Change Product Price\n\n");
+                Console.Write("Enter Product Category\n\n");
                 Console.Write("Product Category\n\n" +
                     "\t1. CPU\n" +
                     "\t2. GPU\n" +
@@ -43,7 +44,7 @@ namespace PoS.ProductManagementModule
                     productCategory = "RAM";
                     break;
                 case "5":
-                    productCategory = "STORAGE";
+;                    productCategory = "STORAGE";
                     break;
             }
             Console.Clear();
@@ -61,8 +62,8 @@ namespace PoS.ProductManagementModule
                     do
                     {
                         Console.Clear();
-                        Console.Write("Change Product Price\n\n");
                         PoSInventoryRepository.CPUInventory.ListAllCPU();
+                        Console.Write("Enter Product Name\n\n");
                         Console.Write("Product Name\n\n" +
                             "> ");
                         inputName = Console.ReadLine();
@@ -74,7 +75,8 @@ namespace PoS.ProductManagementModule
                     do
                     {
                         Console.Clear();
-                        Console.Write("Change Product Price\n\n");
+                        PoSInventoryRepository.GPUInventory.ListAllGPU();
+                        Console.Write("Enter Product Name\n\n");
                         Console.Write("Product Name\n\n" +
                             "> ");
                         inputName = Console.ReadLine();
@@ -85,7 +87,8 @@ namespace PoS.ProductManagementModule
                     do
                     {
                         Console.Clear();
-                        Console.Write("Change Product Price\n\n");
+                        PoSInventoryRepository.MOBOInventory.ListAllMOBO();
+                        Console.Write("Enter Product Name\n\n");
                         Console.Write("Product Name\n\n" +
                             "> ");
                         inputName = Console.ReadLine();
@@ -96,7 +99,8 @@ namespace PoS.ProductManagementModule
                     do
                     {
                         Console.Clear();
-                        Console.Write("Change Product Price\n\n");
+                        PoSInventoryRepository.RAMInventory.ListAllRAM();
+                        Console.Write("Enter Product Name\n\n");
                         Console.Write("Product Name\n\n" +
                             "> ");
                         inputName = Console.ReadLine();
@@ -107,7 +111,8 @@ namespace PoS.ProductManagementModule
                     do
                     {
                         Console.Clear();
-                        Console.Write("Change Product Price\n\n");
+                        PoSInventoryRepository.STORAGEInventory.ListAllSTORAGE();
+                        Console.Write("Enter Product Name\n\n");
                         Console.Write("Product Name\n\n" +
                             "> ");
                         inputName = Console.ReadLine();
@@ -129,16 +134,12 @@ namespace PoS.ProductManagementModule
             do
             {
                 Console.Clear();
+                PoSInventoryRepository.ShowAllProducts();
                 Console.Write("Register new Product Model\n\n");
                 Console.Write("Product Name\n\n" +
                     "> ");
                 inputName = Console.ReadLine();
-            } while (!ProductInformationValidator.IsValidProductName(inputName) &&
-            PoSInventoryRepository.CPUInventory.IsCPURegistered(inputName) &&
-            PoSInventoryRepository.GPUInventory.IsGPURegistered(inputName) &&
-            PoSInventoryRepository.MOBOInventory.IsMOBORegistered(inputName) &&
-            PoSInventoryRepository.RAMInventory.IsRAMRegistered(inputName) &&
-            PoSInventoryRepository.STORAGEInventory.IsSTORAGERegistered(inputName));
+            } while (PoSInventoryRepository.DoesProductExist(inputName));
 
             string productName = inputName;
             Console.Clear();
@@ -242,6 +243,105 @@ namespace PoS.ProductManagementModule
             } while (!BasicDataInput.IsValidPositivieInteger(inputAddend));
             uint addend = uint.Parse(inputAddend);
             return addend;
+        }
+    }
+    public class CartInput
+    {
+        
+        public bool GetFlag(CustomerCart customerCart)
+        {
+            Console.Clear();
+            string inputFlag;
+            do
+            {
+                Console.Write("Finalize Cart?\n\n");
+                Console.Write(
+                    "\t1. Yes\n" +
+                    "\t2. No\n\n" +
+                    "> ");
+                inputFlag = Console.ReadLine();
+            } while (!(inputFlag == "1" || inputFlag == "2"));
+            
+            if(inputFlag == "1")
+            {
+                return true;
+            }
+            return false;
+        }
+        public string GetProductName(string productCategory, PoSInventory PoSInventoryRepository)
+        {
+            string inputName = "";
+
+
+            switch (productCategory)
+            {
+                case "CPU":
+
+                    do
+                    {
+                        Console.Clear();
+                        PoSInventoryRepository.CPUInventory.ListDetailedInformation();
+                        Console.Write("\n\nEnter Product Name\n\n");
+                        Console.Write("Product Name\n\n" +
+                            "> ");
+                        inputName = Console.ReadLine();
+
+                    } while (!PoSInventoryRepository.CPUInventory.IsCPURegistered(inputName));
+
+                    break;
+                case "GPU":
+                    do
+                    {
+                        Console.Clear();
+                        PoSInventoryRepository.GPUInventory.ListDetailedInformation();
+                        Console.Write("\n\nEnter Product Name\n\n");
+                        Console.Write("Product Name\n\n" +
+                            "> ");
+                        inputName = Console.ReadLine();
+
+                    } while (!PoSInventoryRepository.GPUInventory.IsGPURegistered(inputName));
+                    break;
+                case "MOBO":
+                    do
+                    {
+                        Console.Clear();
+                        PoSInventoryRepository.MOBOInventory.ListDetailedInformation();
+                        Console.Write("\n\nEnter Product Name\n\n");
+                        Console.Write("Product Name\n\n" +
+                            "> ");
+                        inputName = Console.ReadLine();
+
+                    } while (!PoSInventoryRepository.MOBOInventory.IsMOBORegistered(inputName));
+                    break;
+                case "RAM":
+                    do
+                    {
+                        Console.Clear();
+                        PoSInventoryRepository.RAMInventory.ListDetailedInformation();
+                        Console.Write("\n\nEnter Product Name\n\n");
+                        Console.Write("Product Name\n\n" +
+                            "> ");
+                        inputName = Console.ReadLine();
+
+                    } while (!PoSInventoryRepository.RAMInventory.IsRAMRegistered(inputName));
+                    break;
+                case "STORAGE":
+                    do
+                    {
+                        Console.Clear();
+                        PoSInventoryRepository.STORAGEInventory.ListDetailedInformation();
+                        Console.Write("\n\nEnter Product Name\n\n");
+                        Console.Write("Product Name\n\n" +
+                            "> ");
+                        inputName = Console.ReadLine();
+
+                    } while (!PoSInventoryRepository.STORAGEInventory.IsSTORAGERegistered(inputName));
+                    break;
+            }
+
+            string productName = inputName;
+            Console.Clear();
+            return productName;
         }
     }
 }

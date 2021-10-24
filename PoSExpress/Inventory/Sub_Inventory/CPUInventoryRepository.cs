@@ -42,6 +42,7 @@ namespace PoS.Inventory
             }
             return null;
         }
+
         public void UpdateCPUInventory()
         {
             string path = @".\repo\cpu_inventory.txt";
@@ -66,13 +67,19 @@ namespace PoS.Inventory
         }
         public bool IsCPURegistered(string productName)
         {
-            List<string> productNames = new List<string>();
+            
 
-            foreach (ProductModel model in CPUInventory) { productNames.Add(model.productName); }
-            if (productNames.Contains(productName)) { return true; }
+            foreach (ProductModel model in CPUInventory) 
+            {
+                
+                if(model.productName == productName)
+                {
+                    return true;
+                }
+            }
+            
             return false;
-        }
-        
+        }    
         public void ListAllCPU()
         {
             Console.Write("CPU CATALOG:\n");
@@ -82,6 +89,13 @@ namespace PoS.Inventory
             }
             Console.WriteLine("");
         }
-    
+        public void ListDetailedInformation()
+        {
+            Console.Write("{0,-20} {1,-20} {2,-20} {3,-20} {4,-20} {5,-20} {6,-20}\n", "PRODUCT NAME", "BRAND", "PRICE", "STOCK", "CORE COUNT", "CPU SOCKET", "WITH CPU COOLER?");
+            foreach(CPU cpu in CPUInventory)
+            {
+                Console.Write("{0,-20} {1,-20} {2,-20} {3,-20} {4,-20} {5,-20} {6,-20}\n", cpu.productName, cpu.brand, cpu.price, cpu.stock, cpu.cpuCoreCount, cpu.cpuSocket, cpu.cpuCooler);
+            }
+        }
     }
 }

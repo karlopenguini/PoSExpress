@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PoS.Inventory;
 using PoS.ProductModels;
+
 namespace PoS
 {
     public class PoSInventory
@@ -40,7 +41,6 @@ namespace PoS
                     break;
             }
         }
-
         public ProductModel GetProduct(string productCategory, string productName)
         {
             switch (productCategory)
@@ -62,10 +62,54 @@ namespace PoS
             }
             return null;
         }
+        public List<string> GetProductInformation(string productCategory, string productName)
+        {
+            ProductModel product = GetProduct(productCategory, productName);
+            List<string> productInformation = new List<string>
+            {
+                productCategory, product.productName, product.brand, product.price.ToString()
+            };
 
-        
-        
+            return productInformation;
+            
+        }
+        public void ShowAllProducts()
+        {
+            
+            CPUInventory.ListAllCPU();
+            
+            GPUInventory.ListAllGPU();
+            
+            MOBOInventory.ListAllMOBO();
+            
+            RAMInventory.ListAllRAM();
+            
+            STORAGEInventory.ListAllSTORAGE();
+        }
+        public void ShowAllProductsAndInformation()
+        {
+            CPUInventory.ListDetailedInformation();
 
+            GPUInventory.ListDetailedInformation();
+
+            MOBOInventory.ListDetailedInformation();
+
+            RAMInventory.ListDetailedInformation();
+
+            STORAGEInventory.ListDetailedInformation();
+        }
+        public bool DoesProductExist(string inputName)
+        {
+            if(CPUInventory.IsCPURegistered(inputName) ||
+            GPUInventory.IsGPURegistered(inputName) ||
+            MOBOInventory.IsMOBORegistered(inputName) ||
+            RAMInventory.IsRAMRegistered(inputName) ||
+            STORAGEInventory.IsSTORAGERegistered(inputName))
+            {
+                return true;
+            }
+            return false;
+        }
         public CPUInventoryRepository CPUInventory { get; set; }
         public GPUInventoryRepository GPUInventory { get; set; }
         public MOBOInventoryRepository MOBOInventory { get; set; }

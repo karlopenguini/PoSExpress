@@ -1,4 +1,6 @@
 ﻿using PoS.ProductManagementModule;
+using PoS.PurchaseManagementModule;
+using PoS.SalesManagementModule;
 using System;
 
 
@@ -9,6 +11,9 @@ namespace PoS
         public static void Main()
         {
             ProductManagerView PoSProductManager = new ProductManagerView();
+            PurchaseManagerView PoSPurchaseManager = new PurchaseManagerView();
+            SalesManagerView PoSSalesManager = new SalesManagerView();
+
             PoSInventory PoSInventoryRepository = new PoSInventory();
 
             PoSExpress MenuViewer = new PoSExpress();
@@ -25,8 +30,10 @@ namespace PoS
                         PoSProductManager.ProductManager(PoSInventoryRepository);
                         break;
                     case "2":
+                        PoSPurchaseManager.PurchaseManager(PoSInventoryRepository);
                         break;
                     case "3":
+                        PoSSalesManager.SalesManager(PoSInventoryRepository);
                         break;
 
                     case "EXIT":

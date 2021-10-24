@@ -71,11 +71,32 @@ namespace PoS.Inventory
         }
         public bool IsMOBORegistered(string productName)
         {
-            List<string> productNames = new List<string>();
+            foreach (ProductModel model in MOBOInventory)
+            {
+                if (model.productName == productName)
+                {
+                    return true;
+                }
+            }
 
-            foreach (ProductModel model in MOBOInventory) { productNames.Add(model.productName); }
-            if (productNames.Contains(productName)) { return true; }
             return false;
+        }
+
+        public void ListAllMOBO()
+        {
+            Console.Write("MOTHERBOARD CATALOG:\n");
+            foreach (MOBO mobo in MOBOInventory)
+            {
+                Console.WriteLine($"- {mobo.productName}");
+            }
+            Console.WriteLine("");
+        }
+        public void ListDetailedInformation()
+        {
+            foreach (MOBO mobo in MOBOInventory)
+            {
+                Console.WriteLine(mobo.Serialize());
+            }
         }
     }
 }

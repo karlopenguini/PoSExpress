@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PoS.ProductModels;
+using PoS.LocalValidator;
 namespace PoS.ProductManagementModule
 {
     public class ProductStockDecrease : GeneralInput

@@ -81,7 +81,7 @@ namespace Validator
         
         public static bool IsValidCPUSocket(string input)
         {
-            if (input.Length <= 11 && input.All (ch => char.IsDigit(ch)))
+            if (input.Length <= 11 && input.All (ch => char.IsDigit(ch) || char.IsLetter(ch) && !char.IsWhiteSpace(ch)))
             {
                 return true;
             }
@@ -99,7 +99,7 @@ namespace Validator
             return false;
         }
     }
-    class GPUProductInformationValidator
+    public class GPUProductInformationValidator
     {
         public static bool IsValidGPUChipset(string input)
         {
@@ -131,7 +131,7 @@ namespace Validator
             return true;
         }
     }
-    class MOBOProductInformationValidator
+    public class MOBOProductInformationValidator
     {
         public static bool IsValidMOBORAMSlots(string input)
         {
@@ -165,7 +165,7 @@ namespace Validator
             return true;
         }
     }
-    class RAMProductInformationValidator
+    public class RAMProductInformationValidator
     {
         public static bool IsValidRAMSize(string input)
         {
@@ -198,7 +198,7 @@ namespace Validator
             return true;
         }
     }
-    class STORAGEProductInformationValidator
+    public class STORAGEProductInformationValidator
     {
         public static bool IsValidSTORAGEType(string input)
         {

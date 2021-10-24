@@ -72,11 +72,31 @@ namespace PoS.Inventory
         }
         public bool IsSTORAGERegistered(string productName)
         {
-            List<string> productNames = new List<string>();
+            foreach (ProductModel model in STORAGEInventory)
+            {
+                if (model.productName == productName)
+                {
+                    return true;
+                }
+            }
 
-            foreach (ProductModel model in STORAGEInventory) { productNames.Add(model.productName); }
-            if (productNames.Contains(productName)) { return true; }
             return false;
+        }
+        public void ListAllSTORAGE()
+        {
+            Console.Write("GPU CATALOG:\n");
+            foreach (STORAGE storage in STORAGEInventory)
+            {
+                Console.WriteLine($"- {storage.productName}");
+            }
+            Console.WriteLine("");
+        }
+        public void ListDetailedInformation()
+        {
+            foreach (STORAGE storage in STORAGEInventory)
+            {
+                Console.WriteLine(storage.Serialize());
+            }
         }
     }
 }

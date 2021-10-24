@@ -53,7 +53,7 @@
     <Compile Include="Inventory\Sub_Inventory\MOBOInventoryRepository.cs" />
     <Compile Include="Inventory\Sub_Inventory\RAMInventoryRepository.cs" />
     <Compile Include="Inventory\Sub_Inventory\STORAGEInventoryRepository.cs" />
-    <Compile Include="ProductManagementModule\Modules\GeneralInput.cs" />
+    <Compile Include="LocaIValidator\GeneralInput.cs" />
     <Compile Include="ProductManagementModule\Modules\ProductStockDecrease.cs" />
     <Compile Include="ProductManagementModule\Modules\ProductStockIncrease.cs" />
     <Compile Include="ProductManagementModule\ProductManagerView.cs" />
@@ -69,6 +69,12 @@
     <Compile Include="PoSExpress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PoSInventory.cs" />
+    <Compile Include="PurchaseManagementModule\CustomerCart.cs" />
+    <Compile Include="PurchaseManagementModule\Modules\OrderGenerator.cs" />
+    <Compile Include="PurchaseManagementModule\PurchaseManagerView.cs" />
+    <Compile Include="SalesManagementModule\Modules\QuantityPerProductReporter.cs" />
+    <Compile Include="SalesManagementModule\Modules\SalesPerProductReporter.cs" />
+    <Compile Include="SalesManagementModule\SalesManagerView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -81,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Inventory\Sub_Inventory\Interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

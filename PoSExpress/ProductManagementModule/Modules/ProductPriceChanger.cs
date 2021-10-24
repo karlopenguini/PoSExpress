@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Validator;
 using PoS.ProductModels;
 using PoS.Inventory;
-
+using PoS.LocalValidator;
 namespace PoS.ProductManagementModule
 {
     public class ProductPriceChanger : GeneralInput

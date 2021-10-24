@@ -68,14 +68,33 @@ namespace PoS.Inventory
             }
             GPUInventory = GPUCatalogue;
         }
-
         public bool IsGPURegistered(string productName)
         {
-            List<string> productNames = new List<string>();
+            foreach (ProductModel model in GPUInventory)
+            {
+                if (model.productName == productName)
+                {
+                    return true;
+                }
+            }
 
-            foreach (ProductModel model in GPUInventory) { productNames.Add(model.productName); }
-            if (productNames.Contains(productName)) { return true; }
             return false;
+        }
+        public void ListAllGPU()
+        {
+            Console.Write("GPU CATALOG:\n");
+            foreach (GPU gpu in GPUInventory)
+            {
+                Console.WriteLine($"- {gpu.productName}");
+            }
+            Console.WriteLine("");
+        }
+        public void ListDetailedInformation()
+        {
+            foreach (GPU gpu in GPUInventory)
+            {
+                Console.WriteLine(gpu.Serialize());
+            }
         }
     }
 }
