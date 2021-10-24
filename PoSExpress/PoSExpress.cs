@@ -35,7 +35,9 @@ namespace PoS
                     case "3":
                         PoSSalesManager.SalesManager(PoSInventoryRepository);
                         break;
-
+                    case "4":
+                        MenuViewer.ShowAllProducts(PoSInventoryRepository);
+                        break;
                     case "EXIT":
                         ProgramLooping = false;
                         break;
@@ -50,9 +52,19 @@ namespace PoS
                 "PoSExpress\n\n" +
                 "1. Product Manager\n" +
                 "2. Order Manager\n" +
-                "3. Sales Analyzer\n\n" +
+                "3. Sales Analyzer\n" +
+                "4. Show All Products\n\n" +
                 "Type 'EXIT' to exit the program.\n\n> ");
 
         }
+
+        private void ShowAllProducts(PoSInventory PoSInventoryRepository)
+        {
+            Console.Clear();
+            PoSInventoryRepository.ShowAllProducts();
+            Console.WriteLine("Press any key to exit . . . ");
+            Console.ReadKey();
+        }
+
     }
 }

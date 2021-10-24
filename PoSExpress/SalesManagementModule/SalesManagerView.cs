@@ -56,6 +56,7 @@ namespace PoS.SalesManagementModule
                         SalesPerProductReporter InitSalesPerProductReporter = new SalesPerProductReporter();
                         break;
                     case "3":
+                        TotalSalesReporter InitTotalSalesReporter = new TotalSalesReporter();
                         break;
                     case "4":
                         ProgramLooping = false;

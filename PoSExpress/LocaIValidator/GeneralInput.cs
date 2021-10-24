@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using PoS.ProductModels;
 using Validator;
 using PoS.PurchaseManagementModule;
+
 namespace PoS.LocalValidator
 {
     public class GeneralInput
@@ -17,7 +19,6 @@ namespace PoS.LocalValidator
             string productCategory = "";
             do
             {
-                
                 Console.Clear();
                 Console.Write("Enter Product Category\n\n");
                 Console.Write("Product Category\n\n" +
@@ -131,6 +132,7 @@ namespace PoS.LocalValidator
         public string GetNewProductName(PoSInventory PoSInventoryRepository)
         {
             string inputName;
+            bool ValidName;
             do
             {
                 Console.Clear();
@@ -139,7 +141,14 @@ namespace PoS.LocalValidator
                 Console.Write("Product Name\n\n" +
                     "> ");
                 inputName = Console.ReadLine();
-            } while (PoSInventoryRepository.DoesProductExist(inputName));
+
+                ValidName = PoSInventoryRepository.DoesProductExist(inputName);
+                if (ValidName)
+                {
+                    MessageBox.Show($"{inputName} does not exist! Please enter an existing product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            } while (ValidName);
 
             string productName = inputName;
             Console.Clear();
@@ -155,6 +164,7 @@ namespace PoS.LocalValidator
                 Console.Write("Brand\n\n" +
                     "> ");
                 inputBrand = Console.ReadLine();
+
             } while (!ProductInformationValidator.IsValidBrand(inputBrand));
             string brand = inputBrand;
             Console.Clear();
@@ -178,6 +188,7 @@ namespace PoS.LocalValidator
         public uint GetStock()
         {
             string inputStock;
+            //bool ValidStock
             do
             {
                 Console.Clear();
@@ -234,13 +245,21 @@ namespace PoS.LocalValidator
         {
             Console.Clear();
             string inputAddend;
+            bool ValidAddendInput = false;
             do
             {
                 Console.Write("Increase Stock\n\n" +
                     "Increase Stock by\n\n" +
                     ">  ");
                 inputAddend = Console.ReadLine();
-            } while (!BasicDataInput.IsValidPositivieInteger(inputAddend));
+
+                ValidAddendInput = !BasicDataInput.IsValidPositivieInteger(inputAddend);
+                if (ValidAddendInput)
+                {
+                    MessageBox.Show($"{inputAddend} is not a valid input! Please enter a positive integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            } while (ValidAddendInput);
             uint addend = uint.Parse(inputAddend);
             return addend;
         }
@@ -277,6 +296,7 @@ namespace PoS.LocalValidator
             {
                 case "CPU":
 
+                    bool ValidCPUInput = false;
                     do
                     {
                         Console.Clear();
@@ -286,10 +306,19 @@ namespace PoS.LocalValidator
                             "> ");
                         inputName = Console.ReadLine();
 
-                    } while (!PoSInventoryRepository.CPUInventory.IsCPURegistered(inputName));
+                        ValidCPUInput = !PoSInventoryRepository.CPUInventory.IsCPURegistered(inputName);
 
+                        if (ValidCPUInput)
+                        {
+                            MessageBox.Show($"{inputName} is not registered! Please enter a registered CPU.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                    } while (ValidCPUInput);
                     break;
+
                 case "GPU":
+
+                    bool ValidGPUInput = false;
                     do
                     {
                         Console.Clear();
@@ -299,9 +328,18 @@ namespace PoS.LocalValidator
                             "> ");
                         inputName = Console.ReadLine();
 
-                    } while (!PoSInventoryRepository.GPUInventory.IsGPURegistered(inputName));
+                        ValidGPUInput = !PoSInventoryRepository.GPUInventory.IsGPURegistered(inputName) && !ValidGPUInput;
+                        if (ValidGPUInput)
+                        {
+                            MessageBox.Show($"{inputName} is not registered! Please enter a registered GPU.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                    } while (ValidGPUInput) ;
                     break;
+
                 case "MOBO":
+
+                    bool ValidMOBOInput = false;
                     do
                     {
                         Console.Clear();
@@ -311,9 +349,18 @@ namespace PoS.LocalValidator
                             "> ");
                         inputName = Console.ReadLine();
 
-                    } while (!PoSInventoryRepository.MOBOInventory.IsMOBORegistered(inputName));
+                        ValidMOBOInput = !PoSInventoryRepository.MOBOInventory.IsMOBORegistered(inputName) && !ValidMOBOInput;
+                        if (!ValidMOBOInput)
+                        {
+                            MessageBox.Show($"{inputName} is not registered! Please enter a registered motherboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                    } while (ValidMOBOInput);
                     break;
+
                 case "RAM":
+
+                    bool ValidRAMInput = false;
                     do
                     {
                         Console.Clear();
@@ -323,9 +370,18 @@ namespace PoS.LocalValidator
                             "> ");
                         inputName = Console.ReadLine();
 
-                    } while (!PoSInventoryRepository.RAMInventory.IsRAMRegistered(inputName));
+                        ValidRAMInput = !PoSInventoryRepository.RAMInventory.IsRAMRegistered(inputName) && !ValidRAMInput;
+                        if (ValidRAMInput)
+                        {
+                            MessageBox.Show($"{inputName} is not registered! Please enter a registered RAM.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                    } while (ValidRAMInput);
                     break;
+
                 case "STORAGE":
+
+                    bool ValidSTORAGEInput = false;
                     do
                     {
                         Console.Clear();
@@ -335,7 +391,13 @@ namespace PoS.LocalValidator
                             "> ");
                         inputName = Console.ReadLine();
 
-                    } while (!PoSInventoryRepository.STORAGEInventory.IsSTORAGERegistered(inputName));
+                        ValidSTORAGEInput = !PoSInventoryRepository.STORAGEInventory.IsSTORAGERegistered(inputName) && !ValidSTORAGEInput;
+                        if (ValidSTORAGEInput)
+                        {
+                            MessageBox.Show($"{inputName} is not registered! Please enter a registered storage.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                    } while (ValidSTORAGEInput);
                     break;
             }
 
