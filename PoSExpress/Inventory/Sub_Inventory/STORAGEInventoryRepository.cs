@@ -80,7 +80,7 @@ namespace PoS.Inventory
         }
         public void ListAllSTORAGE()
         {
-            Console.Write("Storage CATALOG:\n");
+            Console.Write("STORAGE CATALOG:\n");
             foreach (STORAGE storage in STORAGEInventory)
             {
                 Console.WriteLine($"- {storage.productName}");
